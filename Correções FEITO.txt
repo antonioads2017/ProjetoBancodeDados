@@ -1,4 +1,0 @@
-Adicionar atributo a entidade Serviço Técnico: "feedback"
-Adicionar atributo a entridade Componente Eletrônico: "NumSerie"
-
-F E L I C I D A D E  =)
