@@ -1,0 +1,9 @@
+﻿CREATE TABLE Venda(
+	Codigo VARCHAR(15) NOT NULL UNIQUE,
+	Valor FLOAT(2) NOT NULL,
+	TipoPagamento VARCHAR(15) NOT NULL,
+	Data DATE NOT NULL,
+	Funcionario VARCHAR(10) NOT NULL,
+	CONSTRAINT PK_Venda PRIMARY KEY (Codigo),
+	CONSTRAINT FK_Funcionario FOREIGN KEY (Funcionario) REFERENCES Funcionario(Matricula)
+);
