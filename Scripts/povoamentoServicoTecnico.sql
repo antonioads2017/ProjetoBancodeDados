@@ -1,0 +1,12 @@
+insert into Servico_Tecnico values (201801,'2018-01-29','ótimo atendimento','2018-01-22','2018-01-27',40,'2222-1');
+insert into Servico_Tecnico values (201802,'2018-02-27','Bom','2018-02-10','2018-02-20',60,'2222-1');
+insert into Servico_Tecnico values (201803,'2018-03-01',null,'2018-02-17','2018-02-25',30,'2222-2');
+insert into Servico_Tecnico values (201804,'2018-03-20','Muito demorado e caro','2018-02-26','2018-03-20',250,'2222-2');
+insert into Servico_Tecnico values (201805,'2018-03-29',null,'2018-03-15','2018-03-25',70,'2222-3');
+insert into Servico_Tecnico values (201806,'2018-05-11',null,'2018-04-29','2018-05-07',100,'2222-4');
+insert into Servico_Tecnico values (201807,'2018-06-03','Ótimos Resultados','2018-05-17','2018-05-28',170,'2222-4');
+insert into Servico_Tecnico values (201808,'2018-06-10','Serviço bem feito','2018-05-26','2018-06-08',200,'2222-5');
+insert into Servico_Tecnico values (201809,'2018-07-02','Ótimo tratamento dos clientes','2018-06-16','2018-06-27',45,'2222-7');
+insert into Servico_Tecnico values (201810,'2018-07-25','Meu computador tá novinho','2018-07-13','2018-07-20',350,'2222-7');
+insert into Servico_Tecnico values (201811,'2018-09-06','Não gostei','2018-08-19','2018-09-01',50,'2222-8');
+insert into Servico_Tecnico values (201812,'2018-09-16',null,'2018-09-07',null,40,'2222-8');
