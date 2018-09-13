@@ -139,8 +139,7 @@ CREATE TABLE PagaComCheque(
 	REFERENCES Cliente(Matricula),
 CONSTRAINT PagaComCheque_Venda_FK FOREIGN KEY (CodVenda)
 	REFERENCES Venda(Codigo),
-CONSTRTabela PagaComCheque
-AINT PagaComCheque_PK PRIMARY KEY (Cliente, CodVenda)
+CONSTRAINT PagaComCheque_PK PRIMARY KEY (Cliente, CodVenda)
 );
 
 --Tabela Encarregado 
