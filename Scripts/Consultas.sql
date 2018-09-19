@@ -86,3 +86,53 @@ WHERE matricula in
 FROM Funcionario
 WHERE salario<2000
 GROUP BY Salario, matricula)
+
+--Consulta para recuperar o nome e o endereço dos funcionários que moram da cidade sede da loja, 'Cajazeiras'.
+
+SELECT Nome, Bairro, Rua
+FROM Funcionario
+WHERE matricula in
+(SELECT matricula
+FROM Funcionario
+GROUP BY Cidade,Matricula
+HAVING Cidade = 'Cajazeiras')
+
+--Selecione o nome e a matricula de todos os empregados que trabalham no setor de vendas ou de serviços tecnicos 
+(SELECT nome, matricula
+FROM Funcionario
+WHERE setor='Vendas'
+UNION
+SELECT nome, matricula
+FROM Funcionario
+WHERE setor='Serviços técnicos')
+
+--Selecione a matricula e o nome de todos os clientes Cadastrados que soliciatam algum serviço técnico e que taḿbém fizeram alguma compra com cheque
+
+SELECT matricula,nome
+FROM Cliente
+WHERE matricula in 
+(SELECT cliente
+FROM Servico_tecnico
+INTERSECT
+SELECT cliente
+FROM PagaComCheque)
+
+--Consulta para recuperar o codigo, nome e a descrição de todos os componentes eletronicos nunca utilizados em um serviço técnico
+
+SELECT p.codproduto,p.nome, p.descricao
+FROM Componente_Eletronico CE NATURAL JOIN Produto P 
+WHERE NOT EXISTS
+(SELECT *
+FROM Componente_Usado UC
+WHERE CE.codproduto=UC.codproduto)
+
+--Consulta para recuperar o nome e código dos produtos que tiveram pelo menos 5 vendas contabilizadas
+
+SELECT p.nome,p.codproduto
+FROM Produto_venda pv NATURAL JOIN Produto p
+WHERE EXISTS
+(SELECT vp.codproduto
+ FROM Venda_Produto vp
+ GROUP BY vp.codproduto
+ HAVING count(*)>=5 and p.codproduto=vp.codproduto
+)
