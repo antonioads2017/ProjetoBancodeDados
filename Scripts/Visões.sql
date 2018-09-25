@@ -1,8 +1,8 @@
--- Visão para Nome, salário e setor dos funcionários que ganham mais
+﻿-- Visão para Nome, salário e setor dos funcionários que ganham mais
 
 CREATE VIEW maioresSalarios AS(
 	SELECT nome, salario, setor
-	FROM Funcionário
+	FROM Funcionario
 	ORDER BY salario desc
 );
 

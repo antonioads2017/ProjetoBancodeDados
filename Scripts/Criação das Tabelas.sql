@@ -148,7 +148,7 @@ CREATE TABLE Encarregado(
 	Protocolo INT,
 	Funcionario VARCHAR(10),
 	CONSTRAINT Encarregado_Protocolo_FK FOREIGN KEY (Protocolo)
-	REFERENCES ServicoTecnico(Protocolo),
+	REFERENCES Servico_Tecnico(Protocolo),
 CONSTRAINT Encarregado_Funcionario_FK FOREIGN KEY (Funcionario)
 	REFERENCES Funcionario(Matricula),
 	CONSTRAINT Encarregado_PK PRIMARY KEY (Protocolo, Funcionario)
