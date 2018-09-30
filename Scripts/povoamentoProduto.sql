@@ -1,6 +1,6 @@
 insert into Produto (Nome,Descricao,PrecoUnitario,Quantidade,Fornecedor) values('Xiaomi Gaming Keyboard','Teclado Xiaomi gamer com retroiluminação RGB',227.33,17,'89.173.992/0001-62');
 insert into Produto (Nome,Descricao,PrecoUnitario,Quantidade,Fornecedor) values('Xiaomi Wireless Mouse','Mouse Xioami sem fio com designe econômico e confortável',68.56,25,'89.173.992/0001-62');
-insert into Produto (Nome,Descricao,PrecoUnitario,Quantidade,Fornecedor) values('Roteador TP-LINK Wireless','dispositivo combinado de conexão de rede cabeada e wireless',61.50.10,'21.330.498/0001-20');
+insert into Produto (Nome,Descricao,PrecoUnitario,Quantidade,Fornecedor) values('Roteador TP-LINK Wireless','dispositivo combinado de conexão de rede cabeada e wireless',61.50,10,'21.330.498/0001-20');
 insert into Produto (Nome,Descricao,PrecoUnitario,Quantidade,Fornecedor) values('Placa de Vídeo VGA NVIDIA EVGA GEFORCE GTX 1050 TI','NVIDIA EVGA GEFORCE GTX 1050 TI Gaming 4GB GDDR5 - 04G-P4-6251-KR',899.90,5,'21.330.498/0001-20');
 insert into Produto (Nome,Descricao,PrecoUnitario,Quantidade,Fornecedor) values('Monitor Gamer LED ASUS','VS248H Full HD retroiluminado por LEDs',882.30,10,'15.296.084/0001-20');
 insert into Produto (Nome,Descricao,PrecoUnitario,Quantidade,Fornecedor) values('Headset Gamer Razer Kraken','som surround virtual imersivo',299.90,14,'15.296.084/0001-20');

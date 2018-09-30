@@ -23,3 +23,18 @@ CREATE VIEW produtoFornecedor AS(
 	WHERE P.fornecedor=f.cnpj 
 ); 
 
+--Visão Criada para mostrar todos as informações de todos os serviços tecnicos já fechados, incluindo os componentes eletrônicos utilizados para aquele serviço
+
+CREATE VIEW ComponentesPorServiço AS(
+	SELECT *
+	FROM Servico_tecnico ST NATURAL JOIN Componente_Usado US
+	WHERE ST.DataFinal IS NOT NULL
+);
+
+--Visão Criada para mostrar os dados de cada serviço tecnico junto do seu respectivo funcionário encarregado;
+
+CREATE VIEW EncarregadoServico AS(
+	SELECT protocolo, feedback, dataInicio, ValorTotal, Cliente, funcionario, nome
+	FROM (Servico_tecnico NATURAL JOIN Encarregado) STE, Funcionario F
+	WHERE STE.funcionario = F.Matricula 
+);
