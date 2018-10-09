@@ -1,4 +1,4 @@
---Gatilho para diminuir a quantidade de um produto em estoque sempre que uma venda do mesmo for efetuada
+﻿--Gatilho para diminuir a quantidade de um produto em estoque sempre que uma venda do mesmo for efetuada
 
 CREATE OR REPLACE FUNCTION atualizaEstoque() RETURNS TRIGGER
 AS $$
@@ -6,7 +6,7 @@ AS $$
 		UPDATE Produto SET quantidade=quantidade-NEW.quantidade WHERE codProduto=NEW.codProduto;
 		RETURN NULL;	
 	END
-$$LANGUAGE PLPGSQL
+$$LANGUAGE PLPGSQL;
 
 CREATE TRIGGER atualizarEstoqueProduto
 AFTER INSERT ON Venda_Produto 
@@ -29,7 +29,7 @@ AS $$
 		END IF;
 		RETURN NULL;  
 	END
-$$LANGUAGE PLPGSQL
+$$LANGUAGE PLPGSQL;
 
 CREATE TRIGGER atualizaSalario
 AFTER INSERT ON Encarregado

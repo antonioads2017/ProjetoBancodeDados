@@ -1,4 +1,4 @@
---Função criada para retornar o lucro bruto das vendas realizadas por cada funcionário do estabelecimento
+﻿--Função criada para retornar o lucro bruto das vendas realizadas por cada funcionário do estabelecimento
 
 CREATE OR REPLACE FUNCTION LucroPorFuncionario (VARCHAR(10)) RETURNS Venda.valor%type
 AS $$
@@ -17,11 +17,11 @@ AS $$
 		CLOSE curs;
 		RETURN somaLucro;
 	END
-$$LANGUAGE PLPGSQL			
+$$LANGUAGE PLPGSQL;			
 
 --Função para retornar o total de gastos com componentes eletrônicos em um determinado periodo de tempo
 
-CREATE OR REPLACE FUNCTION gastosComComponentes (DATE, DATE) RETURNS Componente_Usado.Preco%type
+CREATE OR REPLACE FUNCTION gastosComComponetes (DATE, DATE) RETURNS Componente_Usado.Preco%type
 AS $$ 
 	DECLARE
 		inicio ALIAS FOR $1;
