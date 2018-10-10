@@ -12,7 +12,7 @@ CREATE VIEW clientesFieis AS(
 	SELECT C.matricula,C.nome,COUNT(ST.protocolo) as numero_de_serviços
 	FROM Cliente C LEFT JOIN Servico_tecnico ST ON C.matricula=ST.cliente
 	GROUP BY C.matricula, C.nome
-	ORDER BY COUNT(ST.protocolo)
+	ORDER BY COUNT(ST.protocolo) DESC
 );
 
 --Visão para mostrar todos os produtos e seus respectivos fornecedores

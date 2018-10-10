@@ -1,3 +1,8 @@
+-- Consulta para recuperar os principais dados dos funcinários ordenado de forma que apareçam primeiro aquele que possuem um salario maior do que os outros
+
+SELECT *
+FROM maioresSalarios
+
 -- Consulta para saber o nome, o email e o telefone do cliente do serviço técnico 201807
 
 SELECT c.nome,c.email,c.telefone
@@ -16,19 +21,24 @@ SELECT SUM(valortotal) as valor_bruto
 FROM Servico_tecnico
 WHERE datafinal>='2018-03-01' AND datafinal<='2018-07-01'
 
---Consulta para recuperar todos os serviços técnicos que ainda não foram finalizados e projetar o seu protocolo, data de início, cliente e prazo
+--Consulta para recuperar todos os serviços técnicos que ainda não foram finalizados e projetar o seu protocolo, data de início, nome do cliente e prazo
 
-SELECT protocolo, datainicio, prazo, cliente
-FROM Servico_tecnico
-WHERE datafinal IS NULL
+SELECT st.protocolo, st.datainicio, st.prazo, c.nome
+FROM Servico_tecnico st, Cliente c
+WHERE st.cliente=c.matricula AND datafinal IS NULL
 
---Consulta para recuperar a quantidade em estoque do produto de código de barras 00000-21
+--Consulta para recuperar as informações sobre quantos serviços técnicos cada cliente já solicitou, e seus dados mais relevates
+
+SELECT *
+FROM clientesFieis
+
+--Consulta para recuperar o nome e a quantidade em estoque do produto de código de barras 00000-21
 
 SELECT p.nome,p.quantidade 
 FROM Produto_venda pv, Produto p
 WHERE pv.codproduto=p.codproduto AND pv.codBarras='00000-21'
 
---Consulta para recupera a quantidade em estoque do componente eletrônico de Número de série 123-C
+--Consulta para recuperae o nome e a quantidade em estoque do componente eletrônico de Número de série 123-C
 
 SELECT p.nome,p.quantidade 
 FROM Componente_eletronico ce, Produto p
@@ -55,9 +65,9 @@ ORDER BY precounitario
 
 --Consulta para recuperar o nome de todos os clientes que solicitaram algum serviço técnico no mes 05 de 2018
 
-SELECT c.nome
-FROM Servico_tecnico se, Cliente 
-WHERE se.cliente=c.matricula AND se.datainicio LIKE '2018-05%'
+SELECT c.nome, c.matricula
+FROM Servico_tecnico se, Cliente c
+WHERE se.cliente=c.matricula AND se.datainicio>='2018-05-01' AND se.datainicio<='2018-05-31'
 
 --Consulta para recuperar o nome e email de todos os clientes que utilizam hotmail como email cadastrado e retornar em ordem alfabétia pelo nome
 
@@ -97,7 +107,7 @@ FROM Funcionario
 GROUP BY Cidade,Matricula
 HAVING Cidade = 'Cajazeiras')
 
---Selecione o nome e a matricula de todos os empregados que trabalham no setor de vendas ou de serviços tecnicos 
+--Consulta para recuperar o nome e a matricula de todos os empregados que trabalham no setor de vendas ou de serviços tecnicos 
 (SELECT nome, matricula
 FROM Funcionario
 WHERE setor='Vendas'
