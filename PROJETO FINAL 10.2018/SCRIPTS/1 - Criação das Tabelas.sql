@@ -137,9 +137,9 @@ CREATE TABLE PagaComCheque(
 	Data DATE NOT NULL,
 	CONSTRAINT PagaComCheque_Cliente_FK FOREIGN KEY (Cliente)
 	REFERENCES Cliente(Matricula),
-CONSTRAINT PagaComCheque_Venda_FK FOREIGN KEY (CodVenda)
+	CONSTRAINT PagaComCheque_Venda_FK FOREIGN KEY (CodVenda)
 	REFERENCES Venda(Codigo),
-CONSTRAINT PagaComCheque_PK PRIMARY KEY (Cliente, CodVenda)
+	CONSTRAINT PagaComCheque_PK PRIMARY KEY (Cliente, CodVenda)
 );
 
 --Tabela Encarregado 
@@ -149,7 +149,7 @@ CREATE TABLE Encarregado(
 	Funcionario VARCHAR(10),
 	CONSTRAINT Encarregado_Protocolo_FK FOREIGN KEY (Protocolo)
 	REFERENCES Servico_Tecnico(Protocolo),
-CONSTRAINT Encarregado_Funcionario_FK FOREIGN KEY (Funcionario)
+	CONSTRAINT Encarregado_Funcionario_FK FOREIGN KEY (Funcionario)
 	REFERENCES Funcionario(Matricula),
 	CONSTRAINT Encarregado_PK PRIMARY KEY (Protocolo, Funcionario)
 );	
@@ -160,11 +160,11 @@ CREATE TABLE PagaComCartao (
 	NumCartao VARCHAR(16),
 	CodVenda INT,
 	NumParcelas INT NOT NULL,
-CONSTRAINT PagaComCartao_NumCartao_FK FOREIGN KEY (NumCartao)
+	CONSTRAINT PagaComCartao_NumCartao_FK FOREIGN KEY (NumCartao)
 	REFERENCES CartaoDeCredito (Numero),
 	CONSTRAINT PagaComCartao_Venda_FK FOREIGN KEY (CodVenda)
 	REFERENCES Venda(Codigo),
-CONSTRAINT PagaComCartao_PK PRIMARY KEY (NumCartao, CodVenda),
+	CONSTRAINT PagaComCartao_PK PRIMARY KEY (NumCartao, CodVenda),
 	CONSTRAINT NumParcelas_Positivo CHECK(NumParcelas > 0)
 );
 
@@ -175,12 +175,12 @@ CREATE TABLE Venda_Produto(
 	CodProduto SERIAL,
 	Preco FLOAT(2) NOT NULL,
 	Quantidade INT NOT NULL,
-CONSTRAINT CodVenda_Venda_Produto_FK FOREIGN KEY(CodVenda) REFERENCES Venda(Codigo),
-CONSTRAINT CodProduto_Venda_Produto_FK FOREIGN
-KEY (CodProduto) REFERENCES Produto(CodProduto),
-CONSTRAINT Venda_Produto_PK PRIMARY KEY (CodVenda, CodProduto),
-CONSTRAINT Venda_Produto_Positivos 
-CHECK (Preco>0 AND Quantidade>0)
+	CONSTRAINT CodVenda_Venda_Produto_FK FOREIGN KEY(CodVenda) REFERENCES Venda(Codigo),
+	CONSTRAINT CodProduto_Venda_Produto_FK FOREIGN
+	KEY (CodProduto) REFERENCES Produto(CodProduto),
+	CONSTRAINT Venda_Produto_PK PRIMARY KEY (CodVenda, CodProduto),
+	CONSTRAINT Venda_Produto_Positivos 
+	CHECK (Preco>0 AND Quantidade>0)
 );
 
 --Tabela ComponenteUsado
@@ -197,7 +197,7 @@ CREATE TABLE Componente_Usado(
 	FOREIGN KEY (CodProduto) REFERENCES
 	Componente_Eletronico(CodProduto),
 	CONSTRAINT Componente_Usado_PK 
-PRIMARY KEY(Protocolo, CodProduto),
-CONSTRAINT Componente_Usado_Positivos
-CHECK (Quantidade>0 AND Preco>0)
+	PRIMARY KEY(Protocolo, CodProduto),
+	CONSTRAINT Componente_Usado_Positivos
+	CHECK (Quantidade>0 AND Preco>0)
 );

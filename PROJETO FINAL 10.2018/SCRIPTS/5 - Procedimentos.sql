@@ -42,4 +42,4 @@ AS $$
 		CLOSE curs;
 		RETURN valorTotal;	
 	END
-$$LANGUAGE PLPGSQL	
+$$LANGUAGE PLPGSQL;	
